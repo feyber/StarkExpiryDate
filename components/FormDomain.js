@@ -5,13 +5,13 @@ const FormDomain = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(domain);
+    onSubmit(`${domain}.stark`);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Domain Stark:
+      Fill in ur domain without .stark
         <input 
           type="text" 
           value={domain} 

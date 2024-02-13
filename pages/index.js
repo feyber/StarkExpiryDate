@@ -3,7 +3,7 @@ import FormDomain from '../components/FormDomain';
 import { useState } from 'react';
 import moment from 'moment';
 
-export default function Home() {
+const Home = () => {
   const [domainData, setDomainData] = useState(null);
   const [error, setError] = useState(null);
   const [submittedDomain, setSubmittedDomain] = useState('');
@@ -12,7 +12,7 @@ export default function Home() {
     try {
       const response = await fetch(`https://api.starknet.id/domain_to_addr?domain=${domain}`);
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error('TOLOL');
       }
       const jsonData = await response.json();
 
@@ -24,21 +24,25 @@ export default function Home() {
 
       setDomainData(newData);
       setSubmittedDomain(domain);
+      setError(null);
+      
     } catch (error) {
       setError(error.message);
+      setDomainData(null);
+      setSubmittedDomain('');
     }
   };
 
   return (
     <div>
       <Head>
-        <title>Domain Stark Form</title>
-        <meta name="description" content="Form to submit a Stark domain" />
+        <title>Domain Stark Expiry Date</title>
+        <meta name="description" content="Checker Domain Stark Expiry Date" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1>Domain Stark Form</h1>
+        <h1>Form Domain Stark</h1>
         <FormDomain onSubmit={handleSubmit} />
         {/* Show error messages if they occur */}
         {error && <p>{error}</p>}
@@ -59,3 +63,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
