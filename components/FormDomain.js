@@ -9,27 +9,29 @@ const FormDomain = ({ onSubmit }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className='mt-5 flex flex-col justify-center items-center'>
-			<label className='flex sm:items-center w-full max-w-lg border border-gray-200 rounded-lg'>
+		<div >
+		<form onSubmit={handleSubmit} className='mt-5 flex flex-col justify-center items-end'>
+			<label className='flex sm:items-center w-full max-w-lg md:max-w-2xl mb-2'>
 				<input
-					className="outline-none px-4 py-2 text-lg shadow-sm h-10 w-full bg-gray-50"
+					className="outline-none text-lg shadow-sm h-10 pl-2 w-full bg-gray-50"
 					type="text"
 					value={domain}
-					placeholder='name domain'
+					placeholder='Domain name'
 					onChange={(e) => setDomain(e.target.value)}
 					required
 				/>
 				<button
 					type='submit'
-					className="w-max inline-flex items-center outline-none justify-center px-5 py-2 mr-3 text-xl font-medium text-center text-white rounded-lg rounded-l-none bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300"
+					className="w-max inline-flex items-center outline-none justify-center px-5 py-2 mr-3 text-xl font-medium text-center text-white rounded-lg rounded-l-none bg-blue-700 hover:bg-blue-800"
 				>
 					Check
 				</button>
 			</label>
-			<p className="mb-5 font-light text-gray-700 lg:mb-8 md:text-lg lg:text-xl">
-				Fill in ur domain without <span className='text-red-500 font-serif font-medium'>.stark</span>
+			<p className="mb-5 font-bold text-white drop-shadow-md lg:mb-8 text-xs md:text-md pr-4 tracking-wide">
+				*Fill in target domain without <span className='text-rose-600 font-serif font-bold tracking-wider'>.stark</span>
 			</p>
 		</form>
+		</div>
 	);
 };
 
